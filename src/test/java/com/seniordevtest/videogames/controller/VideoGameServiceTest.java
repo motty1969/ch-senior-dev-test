@@ -1,5 +1,6 @@
 package com.seniordevtest.videogames.controller;
 
+import static org.junit.Assert.assertNull;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.mockito.Mockito.when;
@@ -90,6 +91,17 @@ public class VideoGameServiceTest {
         GameResponse gameResponse = videoGameService.findGameById(GAME_ID);
         
         assertSame(expectedGameResponse, gameResponse);
+    }
+
+    @Test
+    @DisplayName("Test findGameByID and return a null GameResponse object")
+    public void verifyFindGameByIdNotFound() {
+
+        when(videoGameRepo.findById(GAME_ID_NOT_FOUND)).thenReturn(Optional.ofNullable(null));
+
+        GameResponse gameResponse = videoGameService.findGameById(GAME_ID_NOT_FOUND);
+        
+        assertNull(gameResponse);
     }
 
     @Test

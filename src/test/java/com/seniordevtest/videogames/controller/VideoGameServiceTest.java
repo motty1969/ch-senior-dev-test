@@ -112,8 +112,10 @@ public class VideoGameServiceTest {
     public void verifyGameUpdate() {
 
     	Game game = new Game();
+    	game.setDeveloper(VALID_DEVELOPER_NAME);
+    	game.setTitle(VALID_TITLE);
     	
-    	when(videoGameRepo.findByTitleAndDeveloper(VALID_DEVELOPER_NAME, VALID_TITLE)).thenReturn(videoGameStorageModelToReturnFromDb);
+    	when(videoGameRepo.findByTitleAndDeveloper(game.getTitle(), game.getDeveloper())).thenReturn(videoGameStorageModelToReturnFromDb);
         when(videoGameRepo.save(videoGameStorageModelToReturnFromDb)).thenReturn(videoGameStorageModelToReturnFromDb);
         when(gameToGameStorageModelMapper.gameToGameStorageModel(game)).thenReturn(videoGameStorageModelToReturnFromDb);
 		when(gameStorageModelToGameMapper.gameStorageModelToGameResponse(videoGameStorageModelToReturnFromDb)).thenReturn(expectedGameResponse);

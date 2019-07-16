@@ -20,7 +20,7 @@ import com.seniordevtest.videogames.model.response.Developer;
 public class LoadGameDevelopers {
     
 	private static final String ACCESS_KEY = "AKIASPEKVOGUUIAYA4WW";
-	private static final String SECRET_KEY = "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";
+	private static final String SECRET_KEY = "***************************";
 	private static final String BUCKET_NAME = "ch-senior-dev-test";
 
 	private LoadGameDevelopers() {
